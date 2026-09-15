@@ -1,0 +1,18 @@
+---
+# ┌────────────────────────────────────────────────────────────────┐
+# │ arpa-iac - Global variables (plaintext, committed)             │
+# │ Secrets are never written here. This file maps readable names  │
+# │ onto vault_* variables so you can see WHAT is secret without   │
+# │ decrypting anything.                                           │
+# └────────────────────────────────────────────────────────────────┘
+
+# ──[ Privilege escalation ]──────────────────────────────────────────────────
+# Every host requires a password to escalate. The value resolves from the
+# narrowest scope that defines it — host_vars beats group_vars — and no
+# global default exists, so a host that has not been configured fails on an
+# undefined variable naming it, rather than sending the wrong credential and
+# looking like an auth failure.
+#
+# Plays opt into become explicitly (`become: true`), so nothing escalates by
+# accident just because a credential is available.
+ansible_become_password: "{{ vault_become_pass }}"
