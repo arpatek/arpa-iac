@@ -1,5 +1,7 @@
 # arpa-iac
 
+[![built by arpatek](.assets/badge.svg)](https://arpatek.dev)
+
 Ansible-managed state for the `home.arpa` homelab.
 
 [`home.arpa`](https://codeberg.org/arpatek/home.arpa) documents the lab — what each component
